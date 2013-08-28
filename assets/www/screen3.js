@@ -6,7 +6,17 @@
       console.log("Width:" + window.innerWidth);
     }
 
-    
+    var getCompass = function() {
+        console.log("getCompass()");
+        var suc = function(a){
+            console.log("getCompass successful");
+            document.getElementById('compassHeading').innerHTML = roundNumber(a.trueHeading);
+        };
+        var fail = function(){
+            console.log("getCompass failed");
+        };
+        navigator.compass.getCurrentHeading(suc,fail,null);
+    }
 
     var watchCompass = function() {
         console.log("watchCompass()");
